@@ -8,12 +8,15 @@
   },
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/mailparser": "^3.4.6"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "imapflow": "^1.2.1",
+    "mailparser": "^3.9.1"
   }
 }
