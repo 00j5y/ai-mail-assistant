@@ -2,7 +2,7 @@ const { ImapFlow } = require('imapflow');
 const { simpleParser } = require('mailparser')
 
 import type { ParsedMail } from "mailparser";
-import type { FormatMail } from "../types.ts";
+import type { FormatMail } from "../types";
 
 // Définition de l'utilisateur
 const client = new ImapFlow({
@@ -25,8 +25,9 @@ export const fetchEmails = async (): Promise<FormatMail[]> => {
     const lock = await client.getMailboxLock('INBOX');
 
     // Mail entre hier et aujourd'hui
-    const dateCible: Date = new Date();
-    dateCible.setDate(dateCible.getDate() - 1);
+    const now = new Date();
+    const dateCible = new Date(now);
+    dateCible.setDate(now.getDate() - 1);
     dateCible.setHours(0, 0, 0, 0);
 
     console.log(`🔎 Recherche depuis le : ${dateCible.toLocaleDateString()}`);
