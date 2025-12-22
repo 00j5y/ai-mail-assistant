@@ -1,6 +1,6 @@
 # upjv-mail-assistant
 
-Un simple bot Discord permettant d'envoyer un récapitulatif quotidien des emails Universitaire UPJV généré avec Gemini 2.5 Flash via MP Discord
+Un simple bot permettant d'envoyer un récapitulatif quotidien des emails Universitaire UPJV généré avec Gemini 2.5 Flash via MP Discord
 
 <h2 align="center">🔍 Sommaire</h2>
 
