@@ -1,6 +1,6 @@
 # upjv-mail-assistant
 
-Un simple bot permettant d'envoyer un récapitulatif quotidien des emails Universitaire UPJV généré avec Gemini 2.5 Flash via MP Discord
+Un simple script TypeScript permettant d'envoyer un récapitulatif quotidien des vos emails Gmail généré avec Gemini 2.5 Flash via MP Discord
 
 <h2 align="center">🔍 Sommaire</h2>
 
@@ -33,8 +33,9 @@ bun install
 ```
 <h2 id="config" align="center">⚙️ Configuration</h2>
 
-### Transferer vos mail UPJV sur Gmail
-Astuce : [Gmail Horde UPJV](https://cdn.u-picardie.fr/docs_ent_etud/co/41__1-_ConfMail_Gmail_et_Hotmail.html#:~:text=Ajouter%20votre%20mail%20UPJV%20dans,Hotmail%20n'est%20pas%20possible.)
+### Insérer votre prompt dans le fichier prompt.txt
+Un prompt par défaut est déjà présent</br>
+⚠️ La balise {{EMAILS}} réprésente vos emails dans le prompt
 
 ### Créer un .env avec les informations suivantes
 ```bash
