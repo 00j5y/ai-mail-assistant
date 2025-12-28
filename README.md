@@ -1,4 +1,4 @@
-# upjv-mail-assistant
+# ai-mail-assistant
 
 Un simple script TypeScript permettant d'envoyer un récapitulatif quotidien des vos emails Gmail généré avec Gemini 2.5 Flash via MP Discord
 
