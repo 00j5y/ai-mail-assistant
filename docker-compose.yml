@@ -1,0 +1,8 @@
+services:
+  ai-mail-assistant:
+    build: .
+    container_name: ai-mail-assistant
+    restart: unless-stopped
+    volumes:
+      - ./.env:/app/.env
+      - ./prompt.txt:/app/prompt.txt
