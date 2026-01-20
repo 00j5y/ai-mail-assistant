@@ -51,4 +51,7 @@ GEMINI_API_KEY=votre_clé_api_gemini
 # DISCORD Configuration
 DISCORD_TOKEN=votre_token
 ACCOUNT_ID=votre_id_discord
+
+# CRON Configuration
+HORAIRE_CRON="34 23 * * *" 
 ```

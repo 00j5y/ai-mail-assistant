@@ -5,19 +5,21 @@ import type { ParsedMail } from "mailparser";
 import type { FormatMail } from "../types";
 
 // Définition de l'utilisateur
-const client = new ImapFlow({
-    host: Bun.env.HOST as string,
-    port: Number(Bun.env.PORT) || 993,
-    secure: true,
-    auth: {
-        user: Bun.env.USER as string,
-        pass: Bun.env.PASSWORD as string
-    },
-    logger: false
-});
+
 
 // Fonction pour récupérer les emails
 export const fetchEmails = async (): Promise<FormatMail[]> => {
+    const client = new ImapFlow({
+        host: Bun.env.HOST as string,
+        port: Number(Bun.env.PORT) || 993,
+        secure: true,
+        auth: {
+            user: Bun.env.GMAIL_USER as string,
+            pass: Bun.env.PASSWORD as string
+        },
+        logger: false
+    });
+
     const mailCollecte: FormatMail[] = [];
 
     await client.connect();
@@ -32,9 +34,9 @@ export const fetchEmails = async (): Promise<FormatMail[]> => {
 
     console.log(`🔎 Recherche depuis le : ${dateCible.toLocaleDateString()}`);
 
-    try{
+    try {
         const mailFetched = client.fetch(
-            { since: dateCible},
+            { since: dateCible },
             { source: true, envelope: true, uid: true }
         );
 
@@ -43,17 +45,17 @@ export const fetchEmails = async (): Promise<FormatMail[]> => {
             try {
                 const parsed: ParsedMail = await simpleParser(mail.source);
 
-                const cleanBody = parsed.text 
+                const cleanBody = parsed.text
                     ? parsed.text.trim().substring(0, 1000)
                     : "[Contenu non-textuel ou vide]";
 
-                
+
                 mailCollecte.push({
                     seq: mail.seq,
                     from: parsed.from?.text || "(Inconnu)",
                     subject: parsed.subject || "(Pas de sujet)",
                     date: parsed.date ? parsed.date.toLocaleString('fr-FR') : "(Date inconnue)",
-                    body: cleanBody.replace(/\s+/g, ' ') 
+                    body: cleanBody.replace(/\s+/g, ' ')
                 });
 
             } catch (e) {

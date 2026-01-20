@@ -47,14 +47,10 @@ export const envoieRecapDiscord = async (recapEmail: string, nbrEmail: number) =
             .setFooter({ text: 'Bot Email Recap' });
 
         await user.send({ embeds: [summaryEmbed] });
-        console.log("✅ MP envoyé avec succès.");
+        console.log("✅ MP envoyé avec succès.\n");
 
     } catch (error: unknown) {
         const e = error as Error;
         console.error("🔴 Erreur lors l'envoi du MP :", e);
-    } finally {
-        // Déconnexion du client Discord
-        client.destroy();
-        process.exit(0)
     }
 };
