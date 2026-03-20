@@ -27,7 +27,7 @@ const mailAssistant = async () => {
 };
 
 // Lecture de la config cron
-const HORAIRE_CRON = Bun.env.HORAIRE_CRON || "0 11 * * *";
+const HORAIRE_CRON = (Bun.env.HORAIRE_CRON || "0 11 * * *").replace(/^["']|["']$/g, "").trim();
 
 console.log(`⏳ Le bot est démarré. Planification : ${HORAIRE_CRON}`);
 
